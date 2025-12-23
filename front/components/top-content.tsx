@@ -95,12 +95,15 @@ export function StreamingTopContent({
 
               <div className="p-3">
                 <h2 className="font-semibold leading-tight line-clamp-2">
-                  {movie.title}
+                  {movie.title ?? movie.name}
                 </h2>
 
                 <div className="flex items-center justify-between mt-2 text-zinc-400">
                   <span>⭐ {movie.vote_average.toFixed(1)}</span>
-                  <span>{movie.release_date?.slice(0, 4)}</span>
+                  <span>
+                    {movie.release_date?.slice(0, 4) ??
+                      movie.first_air_date?.slice(0, 4)}
+                  </span>
                 </div>
               </div>
             </div>

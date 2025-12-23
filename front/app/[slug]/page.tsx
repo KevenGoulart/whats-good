@@ -5,6 +5,8 @@ import { notFound, useParams } from "next/navigation";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { streamingPages, StreamingSlug } from "@/utils/streaming-pages";
+import { ChevronLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function StreamingPage() {
   const { slug } = useParams<{ slug: StreamingSlug }>();
@@ -45,30 +47,42 @@ export default function StreamingPage() {
 
   return (
     <section className="w-[70%] mx-auto p-6">
-      <h1 className="text-5xl font-semibold mb-6 text-center">
-        {config.title}
-      </h1>
+      <div className="flex items-center gap-8 mb-6">
+        <Link
+          href="/"
+          className="hover:scale-150 transition-transform hover:text-white/80"
+        >
+          <ChevronLeft size={60} />
+        </Link>
+
+        <h1 className="text-5xl font-semibold">{config.title}</h1>
+      </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {items.map((item: any) => (
           <div
             key={item.id}
-            className="bg-zinc-900 rounded-xl overflow-hidden shadow"
+            className="bg-zinc-900 rounded-xl overflow-hidden shadow group hover:scale-[1.03] transition"
           >
             <Image
               src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-              alt={item.title}
+              alt="poster"
               width={250}
               height={350}
               className="object-cover w-full"
             />
 
             <div className="p-3">
-              <h2 className="font-semibold line-clamp-2">{item.title}</h2>
+              <h2 className="font-semibold leading-tight  line-clamp-2">
+                {item.title ?? item.name}
+              </h2>
 
-              <div className="flex justify-between text-sm text-zinc-400 mt-2">
+              <div className="flex items-center justify-between mt-2 text-zinc-400">
                 <span>⭐ {item.vote_average.toFixed(1)}</span>
-                <span>{item.release_date?.slice(0, 4)}</span>
+                <span>
+                  {item.release_date?.slice(0, 4) ??
+                    item.first_air_date?.slice(0, 4)}
+                </span>
               </div>
             </div>
           </div>
