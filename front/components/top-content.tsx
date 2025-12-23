@@ -3,6 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 type StreamingTopContentProps = {
@@ -57,10 +58,21 @@ export function StreamingTopContent({
             ( {genre} )
           </h1>
         </div>
-        <div>
+        <div className="flex items-center gap-6 mb-4">
+          <Link
+            href={`/${queryKey.join("-")}`}
+            className="text-2xl font-semibold hover:underline hover:text-white/80"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.location.href = `/${queryKey.join("-")}`;
+            }}
+          >
+            Ver mais
+          </Link>
           <button
             onClick={() => setCollapsed(!collapsed)}
-            className="cursor-pointer"
+            className="cursor-pointer hover:scale-125 transition-transform"
           >
             <ChevronDown size={52} />
           </button>

@@ -5,19 +5,18 @@ import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 
 @Injectable()
-export class GetTopParamountMoviesService {
-  async getTopParamountMovies() {
+export class GetTopNetflixMoviesService {
+  async getTopNetflixMovies({ page = 1 }: { page?: number } = {}) {
     const { data } = await axios.get(
       'https://api.themoviedb.org/3/discover/movie',
       {
         params: {
           api_key: process.env.TMDB_API_KEY,
-          with_watch_providers: 531,
+          with_watch_providers: 8,
           watch_region: 'BR',
           sort_by: 'vote_average.desc',
-          'vote_count.gte': 1000,
-          with_watch_monetization_types: 'flatrate',
-          page: 1,
+          'vote_count.gte': 2000,
+          page,
         },
       },
     );
