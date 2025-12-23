@@ -39,8 +39,11 @@ export function StreamingTopContent({
   }
 
   return (
-    <section className="w-[70%] bg-slate-800 p-4 rounded-3xl">
-      <div className="flex items-center justify-between">
+    <section className="w-[70%] bg-slate-900/90 p-4 rounded-[35px]">
+      <div
+        className="flex items-center justify-between cursor-pointer"
+        onClick={() => setCollapsed(!collapsed)}
+      >
         <div>
           <h1 className="text-3xl mb-4 font-semibold flex items-center pl-2 gap-2">
             {title}
@@ -72,7 +75,7 @@ export function StreamingTopContent({
             >
               <Image
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
+                alt="poster"
                 width={250}
                 height={350}
                 className="object-cover w-62.5 h-87.5"
@@ -100,7 +103,7 @@ export function StreamingTopContent({
             >
               <Image
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
+                alt="poster"
                 width={120}
                 height={120}
                 className="object-cover w-32 h-32"
