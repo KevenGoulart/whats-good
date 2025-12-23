@@ -15,7 +15,7 @@ export class GetTopPrimeMoviesService {
           with_watch_providers: 2100,
           watch_region: 'BR',
           sort_by: 'vote_average.desc',
-          'vote_count.gte': 500,
+          'vote_count.gte': 1000,
           with_watch_monetization_types: 'flatrate',
           page: 1,
         },

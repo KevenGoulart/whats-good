@@ -15,7 +15,7 @@ export class GetTopNetflixMoviesService {
           with_watch_providers: 8,
           watch_region: 'BR',
           sort_by: 'vote_average.desc',
-          'vote_count.gte': 1000,
+          'vote_count.gte': 2000,
           page: 1,
         },
       },
