@@ -18,7 +18,7 @@ import { getTopPrimeShows } from "@/services/prime/prime-top-shows";
 
 export default function Home() {
   return (
-    <div className="relative w-full min-h-screen overflow-hidden">
+    <div className="relative w-full min-h-screen overflow-hidden text-white/90">
       <div className="absolute inset-0 z-0">
         <LiquidEther
           colors={["#5227FF", "#FF9FFC", "#B19EEF"]}
@@ -38,10 +38,10 @@ export default function Home() {
           autoRampDuration={0.6}
         />
       </div>
-      <div className="relative z-10 min-h-screen flex flex-col items-center gap-6 py-4">
+      <div className="relative z-10 min-h-screen flex flex-col items-center gap-8 py-4">
         <SplitText
           text="O que tem de bom?"
-          className="text-6xl font-semibold text-center"
+          className="text-5xl md:text-6xl font-semibold text-center"
           delay={70}
           duration={2}
           ease="elastic.out(1, 0.3)"

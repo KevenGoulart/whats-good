@@ -40,35 +40,37 @@ export function StreamingTopContent({
   }
 
   return (
-    <section className="w-[70%] bg-slate-900/90 p-4 rounded-[35px]">
+    <section className="md:w-[70%] mx-4 bg-slate-900/90 p-4 rounded-[35px]">
       <div
-        className="flex items-center justify-between cursor-pointer"
+        className="flex flex-col md:flex-row items-center justify-between cursor-pointer"
         onClick={() => setCollapsed(!collapsed)}
       >
         <div>
-          <h1 className="text-3xl mb-4 font-semibold flex items-center pl-2 gap-2">
+          <h1 className="text-3xl mb-4 font-semibold flex flex-col md:flex-row items-center pl-2 gap-2">
             {title}
-            <Image
-              src={logoSrc}
-              alt="logo"
-              width={100}
-              height={50}
-              className="rounded-3xl"
-            />
-            ( {genre} )
+            <div className="flex items-center gap-2">
+              <Image
+                src={logoSrc}
+                alt="logo"
+                width={100}
+                height={50}
+                className="rounded-3xl"
+              />
+              ( {genre} )
+            </div>
           </h1>
         </div>
-        <div className="flex items-center gap-6 mb-4">
+        <div className="flex items-center w-full md:w-fit justify-between md:justify-center gap-6 mb-4">
           <Link
             href={`/${queryKey.join("-")}`}
-            className="text-2xl font-semibold hover:underline hover:text-white/80"
+            className="text-2xl font-semibold underline hover:text-white/80"
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
               window.location.href = `/${queryKey.join("-")}`;
             }}
           >
-            Ver mais
+            Ver todos
           </Link>
           <button
             onClick={() => setCollapsed(!collapsed)}
@@ -110,7 +112,7 @@ export function StreamingTopContent({
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-10 gap-3">
+        <div className="grid grid-cols-5 md:grid-cols-10 gap-3">
           {data?.slice(0, 10).map((movie: any) => (
             <div
               key={movie.id}

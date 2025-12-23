@@ -46,7 +46,7 @@ export default function StreamingPage() {
   const items = data?.pages.flat() ?? [];
 
   return (
-    <section className="w-[70%] mx-auto p-6">
+    <section className="md:w-[70%] mx-4 p-6 text-white/90">
       <div className="flex items-center gap-8 mb-6">
         <Link
           href="/"
