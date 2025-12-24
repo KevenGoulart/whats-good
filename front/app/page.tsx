@@ -19,7 +19,7 @@ import { getTopPrimeShows } from "@/services/prime/prime-top-shows";
 export default function Home() {
   return (
     <div className="relative w-full min-h-screen overflow-hidden text-white/90">
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <LiquidEther
           colors={["#5227FF", "#FF9FFC", "#B19EEF"]}
           mouseForce={20}
@@ -37,7 +37,7 @@ export default function Home() {
           autoResumeDelay={3000}
           autoRampDuration={0.6}
         />
-      </div>
+      </div> */}
       <div className="relative z-10 min-h-screen flex flex-col items-center gap-8 py-4">
         <SplitText
           text="O que tem de bom?"
