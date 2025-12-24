@@ -6,7 +6,8 @@ async function bootstrap() {
 
   app.enableCors({
     origin: 'https://whats-good-eight.vercel.app',
-    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    credentials: false,
   });
 
   await app.listen(process.env.PORT ?? 3333);
